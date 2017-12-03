@@ -4,20 +4,29 @@
 
 package com.university.controller;
 
+import com.google.inject.Inject;
 import com.university.facade.timetable.ITimetableFacade;
+
+import java.time.LocalTime;
 
 public class TimetableController
 {
 	private ITimetableFacade timetableFacade;
-	
-	public String getTimetable( )
+
+	@Inject
+	public TimetableController(ITimetableFacade timetableFacade)
 	{
-		return null;
+		this.timetableFacade = timetableFacade;
+	}
+
+	public String[] getTimetable( )
+	{
+		return this.timetableFacade.generateTimetable();
 	}
 	
-	public void addLecture( String name, int lecturerId )
+	public void addLecture(String name, int group, String description, int weekDay, LocalTime startTime, int lecturerId ) throws Exception
 	{
-		
+		this.timetableFacade.addLecture(name, group, description, weekDay, startTime, lecturerId);
 	}
 	
 	

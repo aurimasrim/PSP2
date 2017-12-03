@@ -4,12 +4,17 @@
 
 package com.university.domain.timetable.entity;
 
+import java.time.LocalTime;
+
 public class ExerciseLectureTime extends ILectureTime
 {
-	public Time getEndTime( )
+	public ExerciseLectureTime(int weekDay, LocalTime startTime)
 	{
-		return null;
+		super(weekDay, startTime);
 	}
-	
-	
+
+	public LocalTime getEndTime( )
+	{
+		return getStartTime().plusMinutes(60);
+	}
 }

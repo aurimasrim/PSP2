@@ -4,11 +4,13 @@
 
 package com.university.domain.timetable.entity;
 
+import java.time.LocalTime;
+
 public interface ILectureFactory
 {
-	ILectureTime createLecture( String name, int group, String description, ILectureTime lectureTime );
+	ILecture createLecture( String name, int group, String description, ILectureTime lectureTime );
 	
-	ILectureTime createLectureTime( int weekDay, Time startTime );
+	ILectureTime createLectureTime( int weekDay, LocalTime startTime );
 	
 	
 }

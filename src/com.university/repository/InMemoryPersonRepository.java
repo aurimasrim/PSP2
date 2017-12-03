@@ -5,22 +5,35 @@
 package com.university.repository;
 
 import com.university.domain.people.entity.IPerson;
+import java.util.ArrayList;
+import java.util.List;
 
 public class InMemoryPersonRepository implements IPersonRepository
 {
-	public IPerson find( int personId )
+	private List<IPerson> personList;
+
+	public InMemoryPersonRepository()
 	{
-		return null;
+		personList = new ArrayList<IPerson>();
 	}
 	
-	public IPerson findAll( )
+	public IPerson find( int personId )
 	{
-		return null;
+		try {
+			return personList.get(personId);
+		} catch (IndexOutOfBoundsException ex) {
+			return null;
+		}
+	}
+	
+	public List<IPerson> findAll( )
+	{
+		return personList;
 	}
 	
 	public void persist( IPerson person )
 	{
-		
+		personList.add(person);
 	}
 	
 	

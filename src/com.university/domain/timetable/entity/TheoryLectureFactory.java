@@ -4,17 +4,17 @@
 
 package com.university.domain.timetable.entity;
 
+import java.time.LocalTime;
+
 public class TheoryLectureFactory implements ILectureFactory
 {
-	public ILectureTime createLectureTime( int weekDay, Time startTime )
+	public ILectureTime createLectureTime(int weekDay, LocalTime startTime)
 	{
-		return null;
+		return new TheoryLectureTime(weekDay, startTime);
 	}
 	
-	public ILectureTime createLecture( String name, int group, String description, ILectureTime lectureTime )
+	public ILecture createLecture(String name, int group, String description, ILectureTime lectureTime)
 	{
-		return null;
+		return new TheoryLecture(name, group, description, lectureTime);
 	}
-	
-	
 }
