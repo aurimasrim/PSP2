@@ -15,8 +15,7 @@ public class CreatedPostFactory implements IPostFactory
 	
 	public IPostContent createPostContent( String text, Date created )
 	{
-		return new CreatedPostContent(text, created, System.getProperty("MY_EXECUTABLENAME"));
+		return new CreatedPostContent(text, created);
 	}
-	
 	
 }

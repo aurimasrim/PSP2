@@ -24,4 +24,8 @@ public abstract class IPost
 	{
 		return content;
 	}
+
+	public abstract boolean isGenerated( );
+	
+	
 }

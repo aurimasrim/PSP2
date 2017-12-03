@@ -11,6 +11,5 @@ public interface IPostFactory
 	IPost createPost( String title, IPostContent content );
 	
 	IPostContent createPostContent( String text, Date created );
-	
-	
+
 }

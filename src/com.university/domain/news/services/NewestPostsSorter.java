@@ -15,6 +15,4 @@ public class NewestPostsSorter implements IPostsSorter
 	{
 		postList.sort(Comparator.comparing(post -> post.getContent().getCreated()));
 	}
-	
-	
 }

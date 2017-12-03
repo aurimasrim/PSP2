@@ -8,16 +8,8 @@ import java.util.Date;
 
 public class CreatedPostContent extends IPostContent
 {
-	private String createdBy;
-
-	public CreatedPostContent(String text, Date created, String createdBy)
+	public CreatedPostContent(String text, Date created)
 	{
 		super(text, created);
-		this.createdBy = createdBy;
-	}
-
-	public String getCreatedBy()
-	{
-		return createdBy;
 	}
 }

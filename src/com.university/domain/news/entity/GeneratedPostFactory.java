@@ -17,6 +17,4 @@ public class GeneratedPostFactory implements IPostFactory
 	{
 		return new GeneratedPostContent(text, created);
 	}
-	
-	
 }

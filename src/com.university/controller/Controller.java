@@ -7,8 +7,6 @@ package com.university.controller;
 import com.google.inject.Inject;
 import com.university.domain.news.entity.IPost;
 import com.university.facade.news.INewsFacade;
-import com.university.ui.IViewFactory;
-import com.university.ui.NewsView;
 
 
 import java.io.BufferedReader;

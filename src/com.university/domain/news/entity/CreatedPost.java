@@ -10,4 +10,11 @@ public class CreatedPost extends IPost
     {
         super(title, content);
     }
+
+	public boolean isGenerated( )
+	{
+		return false;
+	}
+	
+	
 }

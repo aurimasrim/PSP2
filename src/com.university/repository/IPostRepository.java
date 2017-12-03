@@ -11,10 +11,10 @@ import java.util.List;
 public interface IPostRepository
 {
 	IPost find( int postId );
-	
+
 	void persist( IPost post );
 
 	List<IPost> findAll( );
-	
-	
+
+
 }

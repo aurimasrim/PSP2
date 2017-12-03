@@ -7,7 +7,6 @@ package com.university.facade.news;
 import com.google.inject.Inject;
 import com.university.domain.news.entity.IPost;
 import com.university.domain.news.entity.IPostFactory;
-import com.university.domain.news.services.INewsFeedGenerator;
 import com.university.domain.news.services.IPostsSorter;
 import com.university.repository.IPostRepository;
 
@@ -30,6 +29,6 @@ public class SortedNewsFacade extends INewsFacade
 		postsSorter.sort(postList);
 		return postList;
 	}
-	
-	
+
+
 }
