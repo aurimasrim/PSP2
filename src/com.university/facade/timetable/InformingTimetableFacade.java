@@ -5,6 +5,8 @@
 package com.university.facade.timetable;
 
 import com.google.inject.Inject;
+import com.google.inject.name.Named;
+import com.university.domain.news.entity.IPost;
 import com.university.domain.news.entity.IPostFactory;
 import com.university.domain.people.entity.IPerson;
 import com.university.domain.timetable.entity.ILecture;
@@ -15,6 +17,7 @@ import com.university.repository.IPersonRepository;
 import com.university.repository.IPostRepository;
 
 import java.time.LocalTime;
+import java.util.Date;
 
 public class InformingTimetableFacade extends ITimetableFacade
 {
@@ -27,7 +30,7 @@ public class InformingTimetableFacade extends ITimetableFacade
 								 ITimetableGenerator timetableGenerator,
 								 ILectureFactory lectureFactory,
 								 IPostRepository postRepository,
-								 IPostFactory postFactory)
+								 @Named("Generated") IPostFactory postFactory)
 	{
 		super(personRepository, lectureRepository, timetableGenerator, lectureFactory);
 		this.postRepository = postRepository;
@@ -45,8 +48,12 @@ public class InformingTimetableFacade extends ITimetableFacade
 		if (!person.canTeach()) {
 			throw new Exception("Person with id " + lecturerId + " is not a lecturer");
 		}
+
 		ILecture lecture = this.lectureFactory.createLecture(name, group, description, lectureFactory.createLectureTime(weekday, startTime));
 		this.lectureRepository.persist(lecture);
+
+		IPost post = this.postFactory.createPost("New lecture", postFactory.createPostContent("New lecture has been added.", new Date()));
+		this.postRepository.persist(post);
 	}
 	
 	
