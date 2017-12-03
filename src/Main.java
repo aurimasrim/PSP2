@@ -3,6 +3,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.university.domain.news.entity.IPost;
 import com.university.injection.AppModule;
+import com.university.injection.Config1;
 import com.university.ui.NewsUI;
 import com.university.ui.PeopleUI;
 import com.university.ui.TimetableUI;
@@ -16,7 +17,7 @@ public class Main
 {
     public static void main(String[] args) throws IOException
     {
-        Injector injector = Guice.createInjector(new AppModule());
+        Injector injector = Guice.createInjector(new Config1());
 
         BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));
 

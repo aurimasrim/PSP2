@@ -10,8 +10,10 @@ import com.university.controller.TimetableController;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
+import java.util.List;
 
 public class TimetableUI
 {
@@ -27,9 +29,16 @@ public class TimetableUI
 
 	public void showTimetable( )
 	{
-		String[] timetable = this.timetableController.getTimetable();
-		for (String lecture : timetable) {
-			System.out.println(lecture);
+		List<List<String>> timetable = this.timetableController.getTimetable();
+		for (int i = 0; i < 5; i++) {
+			List<String> weekDay = timetable.get(i);
+			if (!weekDay.isEmpty()) {
+				System.out.println(DayOfWeek.of(i + 1));
+				for (String row : timetable.get(i)) {
+					System.out.println(row);
+				}
+				System.out.println();
+			}
 		}
 	}
 	

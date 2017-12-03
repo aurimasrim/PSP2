@@ -4,12 +4,15 @@
 
 package com.university.facade.timetable;
 
+import com.university.domain.timetable.entity.ILecture;
 import com.university.domain.timetable.entity.ILectureFactory;
 import com.university.repository.IPersonRepository;
 import com.university.repository.ILectureRepository;
 import com.university.domain.timetable.services.ITimetableGenerator;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class ITimetableFacade
 {
@@ -34,9 +37,10 @@ public abstract class ITimetableFacade
 
 	public abstract void addLecture(String name, int group, String description, int weekday, LocalTime startTime, int lecturerId) throws Exception;
 	
-	public String[] generateTimetable( )
+	public List<List<String>> generateTimetable( )
 	{
-		return null;
+		List<ILecture> lectures = lectureRepository.findAll();
+		return this.timetableGenerator.generateTimetable(lectures);
 	}
 	
 	

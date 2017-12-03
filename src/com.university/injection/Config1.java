@@ -14,6 +14,7 @@ import com.university.domain.timetable.services.ITimetableGenerator;
 import com.university.domain.timetable.services.SimpleTimetableGenerator;
 import com.university.facade.news.INewsFacade;
 import com.university.facade.news.SortedNewsFacade;
+import com.university.facade.news.UnsortedNewsFacade;
 import com.university.facade.people.IPeopleFacade;
 import com.university.facade.people.SimplePeopleFacade;
 import com.university.facade.timetable.ITimetableFacade;
@@ -21,7 +22,7 @@ import com.university.facade.timetable.SimpleTimetableFacade;
 import com.university.repository.*;
 import com.university.ui.NewsUI;
 
-public class AppModule extends AbstractModule
+public class Config1 extends AbstractModule
 {
     @Override
     protected void configure()
@@ -39,6 +40,6 @@ public class AppModule extends AbstractModule
         bind(IPostsSorter.class).to(TitlePostsSorter.class);
         bind(IPostFactory.class).to(CreatedPostFactory.class);
         bind(IPostRepository.class).to(InMemoryPostRepository.class);
-        bind(INewsFacade.class).to(SortedNewsFacade.class);
+        bind(INewsFacade.class).to(UnsortedNewsFacade.class);
     }
 }

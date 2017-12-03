@@ -8,6 +8,7 @@ import com.google.inject.Inject;
 import com.university.facade.timetable.ITimetableFacade;
 
 import java.time.LocalTime;
+import java.util.List;
 
 public class TimetableController
 {
@@ -19,7 +20,7 @@ public class TimetableController
 		this.timetableFacade = timetableFacade;
 	}
 
-	public String[] getTimetable( )
+	public List<List<String>> getTimetable( )
 	{
 		return this.timetableFacade.generateTimetable();
 	}

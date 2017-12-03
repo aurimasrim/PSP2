@@ -6,12 +6,29 @@ package com.university.domain.timetable.services;
 
 import com.university.domain.timetable.entity.ILecture;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DetailedTimetableGenerator implements ITimetableGenerator
 {
-	public String generateTimetable( ILecture lectures )
+	public ArrayList<List<String>> generateTimetable( List<ILecture> lectures )
 	{
-		return null;
+		ArrayList<List<String>> timetable = new ArrayList<List<String>>();
+
+		for (int i = 0; i < 5; i++) {
+			List<String> list = new ArrayList<String>();
+			timetable.add(list);
+			for (ILecture lecture : lectures) {
+				if (lecture.getLectureTime().getWeekDay() == i + 1) {
+					String row = lecture.getName() + " "
+							+ lecture.getDescription() + " "
+							+ lecture.getGroup() + " "
+							+ lecture.getLectureTime().getStartTime() + "-"
+							+ lecture.getLectureTime().getEndTime();
+					list.add(row);
+				}
+			}
+		}
+		return timetable;
 	}
-	
-	
 }
