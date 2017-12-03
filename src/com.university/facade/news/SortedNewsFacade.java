@@ -5,6 +5,7 @@
 package com.university.facade.news;
 
 import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import com.university.domain.news.entity.IPost;
 import com.university.domain.news.entity.IPostFactory;
 import com.university.domain.news.services.IPostsSorter;
@@ -17,7 +18,7 @@ public class SortedNewsFacade extends INewsFacade
 	private IPostsSorter postsSorter;
 
 	@Inject
-	public SortedNewsFacade(IPostsSorter postsSorter, IPostRepository postRepository, IPostFactory postFactory)
+	public SortedNewsFacade(IPostsSorter postsSorter, IPostRepository postRepository, @Named("Created") IPostFactory postFactory)
 	{
 		super(postRepository, postFactory);
 		this.postsSorter = postsSorter;

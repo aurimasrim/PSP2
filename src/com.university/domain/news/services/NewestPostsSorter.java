@@ -13,6 +13,6 @@ public class NewestPostsSorter implements IPostsSorter
 {
 	public void sort( List<IPost> postList )
 	{
-		postList.sort(Comparator.comparing(post -> post.getContent().getCreated()));
+		postList.sort(Comparator.comparing(post -> post.getContent().getCreated(), Comparator.reverseOrder()));
 	}
 }

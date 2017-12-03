@@ -4,6 +4,7 @@
 
 package com.university.facade.news;
 
+import com.google.inject.name.Named;
 import com.university.domain.news.entity.IPostFactory;
 
 import java.util.Date;
@@ -17,7 +18,7 @@ public abstract class INewsFacade
 	private IPostFactory postFactory;
 
 	@Inject
-	public INewsFacade(IPostRepository postRepository, IPostFactory postFactory)
+	public INewsFacade(IPostRepository postRepository, @Named("Created") IPostFactory postFactory)
 	{
 		this.postRepository = postRepository;
 		this.postFactory = postFactory;
