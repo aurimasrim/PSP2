@@ -23,11 +23,22 @@ public class SortedNewsFacade extends INewsFacade
 		this.postsSorter = postsSorter;
 	}
 
-	public List<IPost> generateNewsFeed( )
+	public String[] generateNewsFeed( )
 	{
 		List<IPost> postList = postRepository.findAll();
 		postsSorter.sort(postList);
-		return postList;
+		String[] newsFeed = new String[postList.size()];
+
+		for (int i = 0; i < postList.size(); i++)
+		{
+			IPost post = postList.get(i);
+			newsFeed[i] = post.getTitle() + '\n'
+					+ post.getContent().getText() + '\n'
+					+ post.getContent().getCreated() + '\n'
+					+ (post.isGenerated() ? "*Generated automatically*" : "") + '\n';
+		}
+
+		return newsFeed;
 	}
 
 

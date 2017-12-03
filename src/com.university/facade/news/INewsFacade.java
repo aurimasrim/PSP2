@@ -23,7 +23,7 @@ public abstract class INewsFacade
 		this.postFactory = postFactory;
 	}
 
-	public abstract String generateNewsFeed( );
+	public abstract String[] generateNewsFeed( );
 	
 	public void addPost(String title, String text)
 	{

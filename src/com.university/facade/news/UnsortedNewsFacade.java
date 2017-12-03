@@ -18,9 +18,22 @@ public class UnsortedNewsFacade extends INewsFacade
 	{
 		super(postRepository, postFactory);
 	}
-	public List<IPost> generateNewsFeed( )
+
+	public String[] generateNewsFeed( )
 	{
-		return postRepository.findAll();
+		List<IPost> postList = postRepository.findAll();
+		String[] newsFeed = new String[postList.size()];
+
+		for (int i = 0; i < postList.size(); i++)
+		{
+			IPost post = postList.get(i);
+			newsFeed[i] = post.getTitle() + '\n'
+					+ post.getContent().getText() + '\n'
+					+ post.getContent().getCreated() + '\n'
+					+ (post.isGenerated() ? "*Generated automatically*" : "") + '\n';
+		}
+
+		return newsFeed;
 	}
 
 
