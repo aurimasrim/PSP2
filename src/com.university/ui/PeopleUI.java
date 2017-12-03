@@ -25,18 +25,22 @@ public class PeopleUI
 
 	public void addPerson( ) throws IOException
 	{
-			System.out.println("Enter name:");
-			String name = this.consoleReader.readLine();
-			System.out.println("Enter email:");
-			String email = this.consoleReader.readLine();
-			System.out.println("Enter phone number:");
-			String phone = this.consoleReader.readLine();
-			peopleController.addPerson(name, email, phone);
+		System.out.println("Enter name:");
+		String name = this.consoleReader.readLine();
+		System.out.println("Enter email:");
+		String email = this.consoleReader.readLine();
+		System.out.println("Enter phone number:");
+		String phone = this.consoleReader.readLine();
+		peopleController.addPerson(name, email, phone);
+		System.out.println("Successfully added");
 	}
 	
 	public void listPeople( )
 	{
-		
+		String[] peopleList = peopleController.getPeople();
+		for (String person : peopleList) {
+			System.out.println(person);
+		}
 	}
 	
 	

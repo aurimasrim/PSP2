@@ -17,9 +17,9 @@ public class PeopleController
 		this.peopleFacade = peopleFacade;
 	}
 
-	public String getPeople( )
+	public String[] getPeople( )
 	{
-		return null;
+		return peopleFacade.generatePeopleList();
 	}
 	
 	public void addPerson( String name, String email, String phone )
