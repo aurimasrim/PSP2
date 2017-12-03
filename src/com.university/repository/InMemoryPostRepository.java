@@ -4,11 +4,13 @@
 
 package com.university.repository;
 
+import com.google.inject.Singleton;
 import com.university.domain.news.entity.IPost;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Singleton
 public class InMemoryPostRepository implements IPostRepository
 {
 	private List<IPost> postList;

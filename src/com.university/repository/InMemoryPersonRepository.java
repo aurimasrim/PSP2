@@ -4,10 +4,12 @@
 
 package com.university.repository;
 
+import com.google.inject.Singleton;
 import com.university.domain.people.entity.IPerson;
 import java.util.ArrayList;
 import java.util.List;
 
+@Singleton
 public class InMemoryPersonRepository implements IPersonRepository
 {
 	private List<IPerson> personList;
