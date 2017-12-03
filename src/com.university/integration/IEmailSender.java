@@ -6,7 +6,5 @@ package com.university.integration;
 
 public interface IEmailSender
 {
-	void send( String email );
-	
-	
+	void send( String email, String title, String text );
 }
