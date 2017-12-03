@@ -4,6 +4,7 @@ import com.google.inject.Injector;
 import com.university.domain.news.entity.IPost;
 import com.university.injection.AppModule;
 import com.university.ui.NewsUI;
+import com.university.ui.PeopleUI;
 import com.university.ui.TimetableUI;
 
 import java.io.BufferedReader;
@@ -21,6 +22,7 @@ public class Main
 
         NewsUI newsUI = injector.getInstance(NewsUI.class);
         TimetableUI timetableUI = injector.getInstance(TimetableUI.class);
+        PeopleUI peopleUI = injector.getInstance(PeopleUI.class);
 
         boolean run = true;
         while (run) {
@@ -28,6 +30,8 @@ public class Main
                     "2. Add news post\n" +
                     "3. Show timetable\n" +
                     "4. Add new lecture\n" +
+                    "5. List people\n" +
+                    "6. Add person\n" +
                     "0. Exit\n"
             );
             String option = consoleReader.readLine();
@@ -43,6 +47,12 @@ public class Main
                     break;
                 case "4":
                     timetableUI.addLecture();
+                    break;
+                case "5":
+                    peopleUI.listPeople();
+                    break;
+                case "6":
+                    peopleUI.addPerson();
                     break;
                 case "0":
                     run = false;
